@@ -1,7 +1,7 @@
 {
   "name": "min-event",
-  "version": "1.0.3",
-  "description": "Basic event lib",
+  "version": "1.0.4",
+  "description": "Basic Event Lib",
   "main": "index.js",
   "scripts": {
     "test": "mocha test",

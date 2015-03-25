@@ -7,26 +7,23 @@ var Emitter = require('min-event')
 var emitter = new Emitter
 ```
 
-Basic event lib, if you are confused, see [example/events] just like the node.js style events based on `min-event`
+Basic event lib, if you are confused, see [example/events.js] just like the node.js style events based on `min-event`
 
 Proto Api
 ---
 
 #### on
 
+Accept one function argument, return a object `{handler: listener}`
+
 ```js
 var event = emitter.on(listener)
 ```
 
-accept one function argument, return a object
-
-```json
-{
-	handler: listener
-}
-```
 
 #### off
+
+Accept one function argument, remove events filtered by filter
 
 ```js
 emitter.off(filter)
@@ -38,10 +35,10 @@ emitter.off(function(event) {
 })
 ```
 
-accept one function argument, remove events filtered by filter
-
 
 #### emit
+
+Accept two function arguments, filter events and run events
 
 ```js
 emitter.emit(filter, runner)
@@ -53,5 +50,3 @@ emiter.emit(function(event) {
 	event.handler() // run the handler, it is absent runner
 })
 ```
-
-accept two function arguments, filter events and run events

@@ -1,6 +1,7 @@
 min-event
 ===
 
+[![Build status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
 [![Dependency Status][david-image]][david-url]
@@ -12,7 +13,7 @@ min-event
 [david-url]: https://david-dm.org/chunpu/min-event
 
 
-Basic event lib
+Basic Event Lib
 
 Installation
 ---
@@ -30,26 +31,23 @@ var Emitter = require('min-event')
 var emitter = new Emitter
 ```
 
-Basic event lib, if you are confused, see [example/events] just like the node.js style events based on `min-event`
+Basic event lib, if you are confused, see [example/events.js] just like the node.js style events based on `min-event`
 
 Proto Api
 ---
 
 #### on
 
+Accept one function argument, return a object `{handler: listener}`
+
 ```js
 var event = emitter.on(listener)
 ```
 
-accept one function argument, return a object
-
-```json
-{
-	handler: listener
-}
-```
 
 #### off
+
+Accept one function argument, remove events filtered by filter
 
 ```js
 emitter.off(filter)
@@ -61,10 +59,10 @@ emitter.off(function(event) {
 })
 ```
 
-accept one function argument, remove events filtered by filter
-
 
 #### emit
+
+Accept two function arguments, filter events and run events
 
 ```js
 emitter.emit(filter, runner)
@@ -77,12 +75,12 @@ emiter.emit(function(event) {
 })
 ```
 
-accept two function arguments, filter events and run events
-
 License
 ---
 
 [![License][license-image]][license-url]
 
+[travis-image]: https://img.shields.io/travis/chunpu/min-event.svg?style=flat-square
+[travis-url]: https://travis-ci.org/chunpu/min-event
 [license-image]: http://img.shields.io/npm/l/min-event.svg?style=flat-square
 [license-url]: #
