@@ -7,7 +7,7 @@ var Emitter = require('min-event')
 var emitter = new Emitter
 ```
 
-Basic event lib, if you are confused, see [example/events.js] just like the node.js style events based on `min-event`
+Basic event lib, if you are confused, see <example/events.js> just like the node.js style events based on `min-event`
 
 Proto Api
 ---

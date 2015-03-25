@@ -21,9 +21,7 @@ proto.on = function(fn) {
 }
 
 proto.emit = function(filter, runner) {
-	if (is.fn(filter)) {
-		_.each(_.filter(this.cache, filter).slice(), runner || basicRunner)
-	}
+	_.each(this.filter(filter), runner || basicRunner)
 }
 
 proto.once = function(fn) {
@@ -36,6 +34,7 @@ proto.once = function(fn) {
 			me.off(function(item) {
 				return item.handler == wrapper
 			})
+			wrapper = null
 			fn.apply(this, arguments)
 		}
 		return me.on(wrapper)
@@ -43,14 +42,11 @@ proto.once = function(fn) {
 }
 
 proto.off = function(filter) {
-	if (is.fn(filter)) {
-		var cache = this.cache
-		for (var i = cache.length - 1; i >= 0; i--) {
-			if (filter(cache[i])) {
-				cache.splice(i, 1)
-			}
-		}
-	}
+	this.cache = _.difference(this.cache, this.filter(filter))
+}
+
+proto.filter = function(filter) {
+	return _.filter(this.cache, filter || _.noop)
 }
 
 function basicRunner(item) {
