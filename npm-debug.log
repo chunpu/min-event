@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/iojs',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish',
+1 verbose cli   '--verbose' ]
+2 info using npm@2.6.1
+3 info using node@v1.4.3
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/root/min-event',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /root/.npm/min-event/1.0.7/package.tgz not in flight; packing
+9 verbose tar pack [ '/root/.npm/min-event/1.0.7/package.tgz', '/root/min-event' ]
+10 verbose tarball /root/.npm/min-event/1.0.7/package.tgz
+11 verbose folder /root/min-event
+12 info prepublish min-event@1.0.7
+13 verbose addLocalTarball adding from inside cache /root/.npm/min-event/1.0.7/package.tgz
+14 silly cache afterAdd min-event@1.0.7
+15 verbose afterAdd /root/.npm/min-event/1.0.7/package/package.json not in flight; writing
+16 verbose afterAdd /root/.npm/min-event/1.0.7/package/package.json written
+17 silly publish { name: 'min-event',
+17 silly publish   version: '1.0.7',
+17 silly publish   description: 'Basic Event Lib',
+17 silly publish   main: 'index.js',
+17 silly publish   scripts: { test: 'mocha test', readme: 'pretty-readme > readme.md' },
+17 silly publish   author: '',
+17 silly publish   license: 'ISC',
+17 silly publish   dependencies: { 'min-util': 'latest' },
+17 silly publish   devDependencies: { mocha: '^2.1.0' },
+17 silly publish   readme: 'min-event\n===\n\n[![Build status][travis-image]][travis-url]\n[![NPM version][npm-image]][npm-url]\n[![Downloads][downloads-image]][downloads-url]\n[![Dependency Status][david-image]][david-url]\n[npm-image]: https://img.shields.io/npm/v/min-event.svg?style=flat-square\n[npm-url]: https://npmjs.org/package/min-event\n[downloads-image]: http://img.shields.io/npm/dm/min-event.svg?style=flat-square\n[downloads-url]: https://npmjs.org/package/min-event\n[david-image]: http://img.shields.io/david/chunpu/min-event.svg?style=flat-square\n[david-url]: https://david-dm.org/chunpu/min-event\n\n\nBasic Event Lib\n\nInstallation\n---\n\n```sh\nnpm i min-event\n```\n\nUsage\n---\n\n```js\nvar Emitter = require(\'min-event\')\n\nvar emitter = new Emitter\n```\n\nBasic event lib, if you are confused, see <example/events.js> just like the node.js style events based on `min-event`\n\nProto Api\n---\n\n#### on\n\nAccept one function argument, return a object `{handler: listener}`\n\n```js\nvar event = emitter.on(listener)\n```\n\n\n#### off\n\nAccept one function argument, remove events filtered by filter\n\n```js\nemitter.off(filter)\n\n// e.g.\n\nemitter.off(function(event) {\n\treturn event.type = \'event-type\'\n})\n```\n\n\n#### emit\n\nAccept two function arguments, filter events and run events\n\n```js\nemitter.emit(filter, runner)\n\n// e.g.\nemiter.emit(function(event) {\n\treturn event.type = \'mytype\'\n}, function(event) {\n\tevent.handler() // run the handler, it is absent runner\n})\n```\n\nLicense\n---\n\n[![License][license-image]][license-url]\n\n[travis-image]: https://img.shields.io/travis/chunpu/min-event.svg?style=flat-square\n[travis-url]: https://travis-ci.org/chunpu/min-event\n[license-image]: http://img.shields.io/npm/l/min-event.svg?style=flat-square\n[license-url]: #\n',
+17 silly publish   readmeFilename: 'readme.md',
+17 silly publish   gitHead: 'dcdacef322ed2913e70d8d121e0233f3bd576c3e',
+17 silly publish   _id: 'min-event@1.0.7',
+17 silly publish   _shasum: 'e52b80c2df79d23d5f89c45b59012ec6491ec90e',
+17 silly publish   _from: '.' }
+18 silly mapToRegistry name min-event
+19 silly mapToRegistry using default registry
+20 silly mapToRegistry registry https://registry.npmjs.org/
+21 silly mapToRegistry uri https://registry.npmjs.org/min-event
+22 verbose publish registryBase https://registry.npmjs.org/
+23 silly publish uploading /root/.npm/min-event/1.0.7/package.tgz
+24 verbose request uri https://registry.npmjs.org/min-event
+25 verbose request sending authorization for write operation
+26 info attempt registry request try #1 at 09:16:53
+27 verbose request id 14e51e0ee069125b
+28 http request PUT https://registry.npmjs.org/min-event
+29 http 409 https://registry.npmjs.org/min-event
+30 verbose headers { date: 'Thu, 26 Mar 2015 01:16:56 GMT',
+30 verbose headers   server: 'Apache',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=60',
+30 verbose headers   'content-length': '17',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   'x-served-by': 'cache-nrt6123-NRT',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1427332615.299496,VS0,VE1609',
+30 verbose headers   'keep-alive': 'timeout=10, max=50',
+30 verbose headers   connection: 'Keep-Alive' }
+31 verbose request invalidating /root/.npm/registry.npmjs.org/min-event on PUT
+32 verbose request uri https://registry.npmjs.org/min-event?write=true
+33 verbose request no auth needed
+34 info attempt registry request try #1 at 09:16:57
+35 http request GET https://registry.npmjs.org/min-event?write=true
+36 http 200 https://registry.npmjs.org/min-event?write=true
+37 verbose stack Error: cannot modify pre-existing version
+37 verbose stack     at conflictError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:176:11)
+37 verbose stack     at CachingRegistryClient.putNext (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:139:15)
+37 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:121:15
+37 verbose stack     at /usr/local/lib/node_modules/npm/lib/cache/caching-client.js:52:8
+37 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+37 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:73:16
+37 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+37 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:262:12)
+37 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:178:14)
+37 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:373:22)
+38 verbose pkgid min-event
+39 verbose cwd /root/min-event
+40 error Linux 3.2.0-29-generic
+41 error argv "/usr/local/bin/iojs" "/usr/local/bin/npm" "publish" "--verbose"
+42 error node v1.4.3
+43 error npm  v2.6.1
+44 error code EPUBLISHCONFLICT
+45 error publish fail Cannot publish over existing version.
+45 error publish fail Update the 'version' field in package.json and try again.
+45 error publish fail
+45 error publish fail To automatically increment version numbers, see:
+45 error publish fail     npm help version
+46 verbose exit [ 1, true ]

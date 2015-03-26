@@ -20,10 +20,6 @@ proto.on = function(fn) {
 	}
 }
 
-proto.emit = function(filter, runner) {
-	_.each(this.filter(filter), runner || basicRunner)
-}
-
 proto.once = function(fn) {
 	if (is.fn(fn)) {
 		var fired
@@ -41,8 +37,16 @@ proto.once = function(fn) {
 	}
 }
 
+proto.emit = function(filter, runner) {
+	var filtered = this.filter(filter)
+	_.each(filtered, runner || basicRunner)
+	return filtered
+}
+
 proto.off = function(filter) {
-	this.cache = _.difference(this.cache, this.filter(filter))
+	var filtered = this.filter(filter)
+	this.cache = _.difference(this.cache, filtered)
+	return filtered
 }
 
 proto.filter = function(filter) {
