@@ -1,18 +1,19 @@
 {
   "name": "min-event",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Basic Event Lib",
   "main": "index.js",
   "scripts": {
     "test": "mocha test",
-	"readme": "pretty-readme > readme.md"
+    "readme": "pretty-readme > readme.md"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "getorset": "^1.0.3",
     "min-util": "latest"
   },
   "devDependencies": {
-  	"mocha": "^2.1.0"
+    "mocha": "^2.1.0"
   }
 }

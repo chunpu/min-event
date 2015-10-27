@@ -1,6 +1,7 @@
-var assert = require('assert')
-var Events = require('../example/events')
+// var assert = require('assert')
+// var Events = require('../emitter')
 
+/*
 describe('node.js style events', function() {
 	it('can on and emit', function(done) {
 		var e = new Events
@@ -47,6 +48,14 @@ describe('node.js style events', function() {
 		e.removeAllListeners('e')
 		e.emit('e')
 		assert.deepEqual([], arr)
+		e.on('e', add1)
+		e.on('e', add2)
+		e.on('e', add3)
+		e.emit('e')
+		assert.deepEqual([1, 2, 3], arr)
+		e.off('e')
+		e.emit('e')
+		assert.deepEqual([1, 2, 3], arr)
 	})
 
 	it('support once', function(done) {
@@ -65,3 +74,4 @@ describe('node.js style events', function() {
 		}, 20)
 	})
 })
+*/

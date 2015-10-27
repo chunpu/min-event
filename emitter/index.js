@@ -39,6 +39,11 @@ proto.once = function(type, listener) {
 	return this
 }
 
+proto.off = function(type, listener) {
+	if (listener) return this.removeListener(type, listener)
+	return this.removeAllListeners(type)
+}
+
 proto.removeListener = function(type, listener) {
 	if (is.fn(listener)) {
 		this.emitter.off(function(item) {
