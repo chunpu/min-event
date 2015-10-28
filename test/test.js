@@ -46,11 +46,13 @@ describe('basic', function() {
 		e.emit('e')
 		assert.deepEqual([1, 3], arr)
 
-/*
 		arr = []
 		e.off('e')
 		e.emit('e')
-		assert.deepEqual([], arr)
+		assert.deepEqual(arr, [])
+
+
+
 		e.on('e', add1)
 		e.on('e', add2)
 		e.on('e', add3)
@@ -59,7 +61,6 @@ describe('basic', function() {
 		e.off('e')
 		e.emit('e')
 		assert.deepEqual([1, 2, 3], arr)
-		*/
 	})
 
 	it('support once', function(done) {
@@ -76,5 +77,19 @@ describe('basic', function() {
 			assert.deepEqual([1], arr)
 			done()
 		}, 20)
+	})
+
+	it('can pass data and this', function() {
+		var e = new Emitter
+		var arr = []
+		e.on('e', function(a, b, c) {
+			assert(this === e)
+			assert(3 == arguments.length)
+			arr.push(a, b, c)
+		})
+
+		e.emit('e', 2, 4, 6)
+
+		assert.deepEqual(arr, [2, 4, 6])
 	})
 })
