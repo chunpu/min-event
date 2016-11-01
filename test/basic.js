@@ -62,6 +62,23 @@ describe('basic', function() {
 		assert.deepEqual([1, 2, 3], arr)
 	})
 
+	it('can remove all events', function() {
+		var e = new Emitter
+		var arr = []
+		e.on('e1', function() {
+			arr.push(1)
+		})
+		e.on('e2', function() {
+			arr.push(2)
+		})
+		e.emit('e1')
+		e.emit('e2')
+		e.off()
+		e.emit('e1')
+		e.emit('e2')
+		assert.deepEqual(arr, [1, 2])
+	})
+
 	it('support once', function(done) {
 		var e = new Emitter
 		var arr = []

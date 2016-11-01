@@ -51,7 +51,12 @@ proto.emit = function(type, filter, runner) {
 }
 
 proto.off = function(type, filter) {
-	_.remove(this.cache[type], filter || returnTrue)
+	if (undefined === type) {
+		// remove all cache
+		this.cache = {}
+	} else {
+		_.remove(this.cache[type], filter || returnTrue)
+	}
 }
 
 proto.filter = function(type, filter) {
